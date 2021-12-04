@@ -3,6 +3,12 @@ const checklist = document.getElementById('checklist')
 const addItemInput = document.getElementById('add-item')
 const addItemBtn = document.getElementById('add-item-btn')
 
+function deleteItem(index) {
+  console.log(index)
+  items.splice(index, 1)
+  addItemsFromArray()
+}
+
 function addItemsFromArray() {
   checklist.textContent = ''
   const fragment = document.createDocumentFragment()
@@ -19,8 +25,14 @@ function addItemsFromArray() {
     labelEl.htmlFor = `item-${i}`
     labelEl.textContent = item
 
+    const deleteBtn = document.createElement('button')
+    deleteBtn.className = 'delete-btn'
+    deleteBtn.textContent = 'X'
+    deleteBtn.addEventListener('click', () => deleteItem(i))
+
     checklistItem.appendChild(inputEl)
     checklistItem.appendChild(labelEl)
+    checklistItem.appendChild(deleteBtn)
     fragment.appendChild(checklistItem)
   })
 

@@ -49,6 +49,8 @@ form {
 }
 
 .checklist-item {
+  display: flex;
+  align-items: center;
   margin: 0.5em;
   width: 100%;
   text-align: left;
@@ -58,4 +60,8 @@ form {
 input[type='checkbox']:checked + label {
   text-decoration: line-through;
   font-weight: normal;
+}
+
+.delete-btn {
+  margin-left: auto;
 }
