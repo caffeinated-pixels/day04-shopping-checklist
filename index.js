@@ -5,6 +5,7 @@ const addItemBtn = document.getElementById('add-item-btn')
 
 function addItemsFromArray() {
   checklist.textContent = ''
+  const fragment = document.createDocumentFragment()
 
   items.forEach((item, i) => {
     const checklistItem = document.createElement('div')
@@ -20,8 +21,10 @@ function addItemsFromArray() {
 
     checklistItem.appendChild(inputEl)
     checklistItem.appendChild(labelEl)
-    checklist.appendChild(checklistItem)
+    fragment.appendChild(checklistItem)
   })
+
+  checklist.appendChild(fragment)
 }
 
 function addNewItem(event) {
