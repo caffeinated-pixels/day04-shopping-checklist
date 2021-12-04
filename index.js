@@ -4,7 +4,6 @@ const addItemInput = document.getElementById('add-item')
 const addItemBtn = document.getElementById('add-item-btn')
 
 function deleteItem(index) {
-  console.log(index)
   items.splice(index, 1)
   addItemsFromArray()
 }
