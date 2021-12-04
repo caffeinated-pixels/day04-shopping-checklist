@@ -1,22 +1,37 @@
-const items = ['Candles', 'Decorations', 'Chocolate']
+const items = ['Candles', 'Decorations', 'Chocolate', 'Rum', 'Nut Roast']
 const checklist = document.getElementById('checklist')
+const addItemInput = document.getElementById('add-item')
+const addItemBtn = document.getElementById('add-item-btn')
 
-items.forEach((item, i) => {
-  const checklistItem = document.createElement('div')
-  checklistItem.className = 'checklist-item'
+function addItemsFromArray() {
+  checklist.textContent = ''
 
-  const inputEl = document.createElement('input')
-  inputEl.type = 'checkbox'
-  inputEl.id = `item-${i}`
+  items.forEach((item, i) => {
+    const checklistItem = document.createElement('div')
+    checklistItem.className = 'checklist-item'
 
-  const labelEl = document.createElement('label')
-  labelEl.htmlFor = `item-${i}`
-  labelEl.textContent = item
+    const inputEl = document.createElement('input')
+    inputEl.type = 'checkbox'
+    inputEl.id = `item-${i}`
 
-  checklistItem.appendChild(inputEl)
-  checklistItem.appendChild(labelEl)
-  checklist.appendChild(checklistItem)
-})
+    const labelEl = document.createElement('label')
+    labelEl.htmlFor = `item-${i}`
+    labelEl.textContent = item
+
+    checklistItem.appendChild(inputEl)
+    checklistItem.appendChild(labelEl)
+    checklist.appendChild(checklistItem)
+  })
+}
+
+function addNewItem(event) {
+  event.preventDefault()
+  items.push(addItemInput.value)
+  addItemsFromArray()
+}
+
+addItemBtn.addEventListener('click', addNewItem)
+addItemsFromArray()
 
 // Task:
 // - For each item in the items array, create a div with a class of "checklist-item", which contains a checkbox input and corresponding label.
