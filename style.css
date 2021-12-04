@@ -64,4 +64,12 @@ input[type='checkbox']:checked + label {
 
 .delete-btn {
   margin-left: auto;
+  border: 0;
+  background-color: transparent;
+  cursor: pointer;
+}
+
+.delete-btn:hover {
+  color: var(--bright-red);
+  font-weight: bold;
 }
