@@ -2,14 +2,19 @@ const items = ['Candles', 'Decorations', 'Chocolate']
 const checklist = document.getElementById('checklist')
 
 items.forEach((item, i) => {
-  console.log(item)
   const checklistItem = document.createElement('div')
   checklistItem.className = 'checklist-item'
 
   const inputEl = document.createElement('input')
   inputEl.type = 'checkbox'
+  inputEl.id = `item-${i}`
 
-  checklistItem.textContent = item
+  const labelEl = document.createElement('label')
+  labelEl.htmlFor = `item-${i}`
+  labelEl.textContent = item
+
+  checklistItem.appendChild(inputEl)
+  checklistItem.appendChild(labelEl)
   checklist.appendChild(checklistItem)
 })
 
